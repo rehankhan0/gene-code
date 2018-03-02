@@ -5,12 +5,10 @@ class node
 public:
 int data;
 node *next;
-node *prev;
 
 node() { //constructor
     data = 0;
     next = nullptr;
-    prev = nullptr;
 }
 };
 class linked_list
@@ -26,14 +24,12 @@ void insert (int data){//inserting nodes
     node *tmp = new node;
     tmp->data = data;
     tmp->next = NULL;
-    tmp->prev = NULL;
     if(head == NULL){
         head = tmp;
         tail = tmp;
     }
     else{
         tail->next = tmp;
-        tmp->prev = tail;
         tail = tail->next;
     }
 cout << "Node with data " << data << " successfully added." << endl;
@@ -53,13 +49,9 @@ class bubblesort{
    void sort(node *h){
        
       for(node*i = h;i!=NULL;){
-           cout<<"t1";
            for(node*j = h;j->next!=NULL;){
-               cout<<"t2";
-               
                if((j->data) > j->next->data){
                    int t = j->next->data;
-                   cout<<"t3";
                     j->next->data = j->data;
                     j->data = t;
                }j=j->next;
@@ -77,13 +69,11 @@ int main(){
     int i=0;
     while(i<x){
         ll1.insert(rand() % x);
-        ll1.display();
-        cout<<"\nl\n";
         i++;
     }
-    cout<<"test7";
+    cout<<"input list is ";
+    ll1.display();
     c.sort(ll1.head);
-    cout<<"test";
     ll1.display();
     return 0;
 }
